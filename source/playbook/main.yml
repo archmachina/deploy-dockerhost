@@ -8,12 +8,10 @@
   gather_facts: true
   serial: "{{ serial | default(omit) }}"
   tasks:
-    - when: "apply|default(false)"
-      block:
-        - include_role:
-            name: base
-        - include_role:
-            name: docker
+    - include_role:
+        name: base
+    - include_role:
+        name: docker
   environment:
     http_proxy: "{{ http_proxy | default('') }}"
     https_proxy: "{{ https_proxy | default('') }}"
